@@ -1,0 +1,11 @@
+name: first workflow
+on: 
+ workflow_dispatch:
+jobs:
+  first-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print hello
+        run: echo "my nam is kaniishk"
+      
+      
