@@ -1,0 +1,16 @@
+name: test actions
+on: 
+  workflow_dispatch:
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print hello world
+        run: echo "hello world"
+      - name: checkout code 
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: find type of file
+        run: find . -name "*.*"
+        
