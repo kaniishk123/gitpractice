@@ -5,5 +5,15 @@ jobs:
   senddatatos3:  
     runs-on: ubuntu-latest
     steps:
-      - name: print hello world
-        run: echo "hello world"
+      - name: create the folder and file
+        run: |
+          mkdir -p temp_folder
+          echo "this file was created at $(date)">temp_folder/file1.txt
+      - name: configure aws cred
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+      - name: send that file to s3bucket
+        run: aws s3 cp file1.txt s3://${{secrets.AWS_BUCKET}}
