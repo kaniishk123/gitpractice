@@ -16,4 +16,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
       - name: send that file to s3bucket
-        run: aws s3 cp file1.txt s3://${{secrets.AWS_BUCKET}}/
+        run: aws s3 cp temp_folder/file1.txt s3://${{ secrets.AWS_BUCKET }}/
