@@ -1,9 +1,0 @@
-name: push data to s3
-on: 
-  workflow_dispatch:
-jobs:
-  senddatatos3
-  runs-on: ubuntu-latest
-  steps:
-    - name: print hello world
-      run: echo "hello world"
